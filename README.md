@@ -1,63 +1,83 @@
-# NLW Agents
+# NLW Agents - Web
 
-Projeto desenvolvido durante o evento NLW da Rocketseat.
+## Sobre o Projeto
 
-## Tecnologias utilizadas
+Aplicação web desenvolvida durante o NLW da Rocketseat para gerenciamento de salas e perguntas a serem respondidas por agentes inteligentes de forma automática.
 
-### Principais dependências
-- React 19 - Biblioteca para construção de interfaces
-- TypeScript 5.0+ - Superset JavaScript com tipagem estática
-- Tailwind CSS 3.4+ - Framework CSS utilitário
-- React Query 5.0+ - Gerenciamento de estado assíncrono
-- React Router 6.20+ - Roteamento para aplicações React
-- Radix UI 1.0+ - Componentes UI acessíveis e sem estilos
-- Lucide Icons 0.3+ - Biblioteca de ícones
-- Vite 5.0+ - Build tool e servidor de desenvolvimento
+## Fluxo do Sistema
 
-### Variáveis de ambiente
-Necessário criar um arquivo `.env` na raiz do projeto com:
-```
-VITE_API_URL= # URL da API
-VITE_ENV=development # ou production
-```
+1. **Criação e Configuração**:
+   - Usuários criam salas para tópicos específicos
+   - Gravam áudios explicativos que são automaticamente transcritos e armazenados
 
-## Padrões e estrutura
+2. **Interação**:
+   - Participantes enviam perguntas relacionadas ao tópico
+   - O sistema utiliza a API do Gemini para:
+     - Analisar o contexto gravado
+     - Gerar respostas inteligentes e contextualizadas
+     - Manter a coerência do diálogo
 
-### Estrutura de pastas
+3. **Visualização**:
+   - Todas as perguntas e respostas são organizadas em uma lista
+   - Interface intuitiva para acompanhar as discussões
+
+## Funcionalidades Técnicas
+
+- Integração com Gemini API para processamento de linguagem natural
+- Sistema de transcrição automática de áudio
+- Armazenamento e recuperação eficiente de contextos
+- Interface otimizada para diferentes dispositivos
+
+## Tecnologias
+
+### Core
+- React 19 + TypeScript 5.0+
+- Vite 5.0+ (Build tool)
+- Tailwind CSS 3.4+ (Estilização)
+
+### Bibliotecas
+- React Query 5.0+ (Gerenciamento de estado)
+- Radix UI 1.0+ (Componentes acessíveis)
+- Lucide Icons 0.3+ (Ícones)
+- Day.js (Manipulação de datas)
+
+### Estrutura do Projeto
 ```
 src/
 ├── components/    # Componentes reutilizáveis
-│   └── ui/        # Componentes de UI básicos
-├── pages/         # Páginas/rotas da aplicação
-├── lib/           # Utilitários e helpers
-└── styles/        # Estilos globais
+│   ├── ui/        # Componentes de UI básicos
+│   ├── question-* # Componentes de perguntas
+│   └── room-*     # Componentes de salas
+├── pages/         # Páginas/rotas
+│   ├── create-room.tsx
+│   ├── room.tsx
+│   └── record-room-audio.tsx
+├── http/          # Hooks e tipos para API
+│   ├── use-*.ts   # Hooks de chamadas HTTP
+│   └── types/     # Tipos de requisições/respostas
+├── lib/           # Utilitários (dayjs, helpers)
+└── index.css      # Estilos globais
 ```
 
-### Padrões
-- Componentes UI reutilizáveis
-- Páginas separadas por rota
-- Estilização com Tailwind CSS e utilitários (clsx, tailwind-merge)
-- TypeScript para tipagem estática
-
-## Setup do projeto
+## Configuração
 
 1. Instale as dependências:
 ```bash
 npm install
 ```
 
-2. Execute o servidor de desenvolvimento:
+2. Execute o servidor:
 ```bash
 npm run dev
 ```
 
-3. Para build de produção:
+3. Para produção:
 ```bash
 npm run build
 ```
 
+## Links
 
-## Links úteis
-- [Documentação do projeto]()
-- [Repositório no GitHub]()
-- [Evento NLW]()
+- [Repositório no GitHub](https://github.com/matheuszarpellon/NLWAgents-Web)
+- [Site da Rocketseat](https://www.rocketseat.com.br)
+- [Evento NLW](https://www.rocketseat.com.br/nlw)
